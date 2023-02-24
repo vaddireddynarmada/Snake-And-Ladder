@@ -2,6 +2,7 @@ public class SnakeAndLadder {
     static final int NO_PLAY = 0;
     static final int LADDER = 1;
     static final int SNAKE = 2;
+
     public static void main(String[] args) {
         int position = 0;
         while (position <= 100) {
@@ -9,8 +10,13 @@ public class SnakeAndLadder {
             int dice = (int) Math.floor((Math.random() * 10) % 6) + 1;
             switch (roll) {
                 case SNAKE:
-                    System.out.println("player got snake : " + position);
-                    position = position - dice;
+                    if (position < 0) {
+                        position = 0;
+                        System.out.println("start from zero: " + position);
+                    } else {
+                        System.out.println("player got snake : " + position);
+                        position = position - dice;
+                    }
                 case LADDER:
                     System.out.println("player goes to next position : " + position);
                     position = position + dice;
@@ -20,5 +26,6 @@ public class SnakeAndLadder {
                     break;
             }
         }
+        System.out.println("player winning position : " + position);
     }
 }
