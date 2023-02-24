@@ -4,8 +4,9 @@ public class SnakeAndLadder {
     static final int SNAKE = 2;
 
     public static void main(String[] args) {
-        int position = 0;
+        int position = 0,rollCount=0;
         while (position != 100) {
+            rollCount++;
             int roll = (int) Math.floor((Math.random() * 10) % 3);
             int dice = (int) Math.floor((Math.random() * 10) % 6) + 1;
             switch (roll) {
@@ -32,5 +33,6 @@ public class SnakeAndLadder {
             }
         }
         System.out.println("winning position : " + position);
+        System.out.println("No of times dice rolled = " + rollCount);
     }
 }
